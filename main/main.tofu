@@ -1,8 +1,13 @@
-# Kubernetes Namespace Resource
-# https://search.opentofu.org/provider/hashicorp/kubernetes/latest/docs/resources/namespace_v1
+# Kubernetes Config Map Resource
+# https://search.opentofu.org/provider/hashicorp/kubernetes/latest/docs/resources/config_map_v1
 
-resource "kubernetes_namespace_v1" "floor_fixture" {
+resource "kubernetes_config_map_v1" "main" {
+  data = {
+    workspace = "main"
+  }
+
   metadata {
-    name = "floor-fixture"
+    name      = "main"
+    namespace = "floor-fixture"
   }
 }
